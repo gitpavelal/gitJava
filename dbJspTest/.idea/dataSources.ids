@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - bookmanager@localhost" uuid="86e63500-142a-4a50-9edc-236f13fbb1e2">
+    <database-info product="MySQL" version="5.5.5-10.1.9-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="bookmanager"/>
+      <table id="2" parent="1" name="books"/>
+      <table id="3" parent="1" name="users"/>
+      <table id="4" parent="1" name="uses_pattern_letter"/>
+      <column id="5" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="BOOK_TITLE">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="7" parent="2" name="BOOK_AUTHOR">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="8" parent="2" name="BOOK_PRICE">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="9" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="10" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="3" name="password">
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="12" parent="3" name="username">
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="13" parent="3" name="arrears">
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="14" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="15" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="16" parent="4" name="pattern_letter">
+        <data-type>varchar(5000)</data-type>
+      </column>
+      <column id="17" parent="4" name="tittle_latter">
+        <data-type>varchar(40)</data-type>
+      </column>
+      <key id="18" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
