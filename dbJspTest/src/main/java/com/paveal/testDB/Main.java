@@ -2,6 +2,9 @@ package com.paveal.testDB;
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.sql.*;
 
 public class Main {
@@ -9,36 +12,39 @@ public class Main {
 
     public static void main(String[] args) {
         DbWorker worker = new DbWorker();
+        FileWriter writer = null;
 
 
         try {
+
             Statement statement = worker.getConnection().createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT id, password ,username  FROM users");
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT username, tittle_latter, uses_pattern_letter.id   " +
+                            "FROM users, uses_pattern_letter WHERE uses_pattern_letter.id=1");
 
             while (resultSet.next()) {
                 User user = new User();
-                user.setUserId(resultSet.getInt("id"));
-                user.setUserPassword(resultSet.getString("password"));
-                user.setUserName(resultSet.getString("username"));
-
-                System.out.print(user.getUserId() + " ");
-                System.out.print(user.getUserPassword() + " ");
-                System.out.println(user.getUserName());
-            }
-
-            statement.getConnection();
-            resultSet = statement.executeQuery("SELECT tittle_latter FROM uses_pattern_letter");
-
-            while (resultSet.next()){
                 Letter letter = new Letter();
 
+                user.setUserName(resultSet.getString("username"));
                 letter.setLetterTittle(resultSet.getString("tittle_latter"));
 
-                System.out.println(letter.getLetterTittle());
+                writer = new FileWriter("E:\\" + user.getUserName() + ".txt"   /**, true*/);
+                writer.write((letter.getLetterTittle().replace("письмо", user.getUserName())));
+
+                System.out.println(user.getUserName());
+                writer.close();
             }
 
+
+            if (worker.getConnection().isClosed()) {
+                System.out.println("Connection on");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("writer error");
+            ;
         }
 
 
