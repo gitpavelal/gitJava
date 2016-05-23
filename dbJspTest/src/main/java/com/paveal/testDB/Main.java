@@ -5,27 +5,31 @@ import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
 
 public class Main {
-    private final static String url ="jdbc:mysql://localhost:3306/bookmanager";
-    private final static String userName ="root";
-    private final static String password ="";
+
 
     public static void main(String[] args) {
+        DbWorker worker = new DbWorker();
+
 
         try {
-            Driver driver = new FabricMySQLDriver();
-            DriverManager.registerDriver(driver);
-        } catch (SQLException e) {
-            System.err.println("Нет соединения с БД");
-        }
+            Statement statement = worker.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT id, password ,username  FROM users");
 
-        try(Connection connection = DriverManager.getConnection(url,userName,password); Statement statement
-        = connection.createStatement()) {
-        statement.executeQuery()
+            while (resultSet.next()) {
+                User user = new User();
+                user.setUserId(resultSet.getInt("id"));
+                user.setUserPassword(resultSet.getString("password"));
+                user.setUserName(resultSet.getString("username"));
 
+                System.out.print(user.getUserId() + " ");
+                System.out.print(user.getUserPassword() + " ");
+                System.out.println(user.getUserName());
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
     }
 }
