@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mavenTestDb.iml" filepath="$PROJECT_DIR$/mavenTestDb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dbJspTest.iml" filepath="$PROJECT_DIR$/dbJspTest.iml" />
     </modules>
   </component>
 </project>
