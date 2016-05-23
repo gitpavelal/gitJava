@@ -26,6 +26,17 @@ public class Main {
                 System.out.println(user.getUserName());
             }
 
+            statement.getConnection();
+            resultSet = statement.executeQuery("SELECT tittle_latter FROM uses_pattern_letter");
+
+            while (resultSet.next()){
+                Letter letter = new Letter();
+
+                letter.setLetterTittle(resultSet.getString("tittle_latter"));
+
+                System.out.println(letter.getLetterTittle());
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
