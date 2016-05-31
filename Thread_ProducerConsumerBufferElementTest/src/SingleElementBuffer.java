@@ -1,3 +1,4 @@
+import java.util.concurrent.TimeoutException;
 
 public class SingleElementBuffer implements Runnable {
 
@@ -11,14 +12,26 @@ public class SingleElementBuffer implements Runnable {
 
     }
 
-    public synchronized void  put (Integer newElement) throws InterruptedException {
+    public synchronized void  put (Integer newElement, long timeOut) throws InterruptedException, TimeoutException {
 
-        while (!(elem == null)){
+        long waitTime = timeOut;
+        while (elem != null && waitTime > 0){
+            long t0 = System.currentTimeMillis();
             this.wait();
+            long t1 = System.currentTimeMillis();
+            long elapsedTime = t1 - t0;
+            waitTime -= elapsedTime;
+
+
         }
+        if (waitTime < 0){
+            throw new TimeoutException();
+        }
+
 
         this.elem = newElement;
         this.notifyAll();
+
     }
 
     public synchronized Integer get () throws InterruptedException {
