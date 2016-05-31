@@ -29,7 +29,7 @@ public class Main {
                 user.setUserName(resultSet.getString("username"));
                 letter.setLetterTittle(resultSet.getString("tittle_latter"));
 
-                writer = new FileWriter("E:\\" + user.getUserName() + ".txt"   /**, true*/);
+                writer = new FileWriter("E:\\" + user.getUserName() + ".txt", true);
                 writer.write((letter.getLetterTittle().replace("письмо", user.getUserName())));
 
                 System.out.println(user.getUserName());
