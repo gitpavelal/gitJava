@@ -1,19 +1,14 @@
 package com.paveal.testDB;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.sql.*;
 
 public class Main {
 
-
     public static void main(String[] args) {
         DbWorker worker = new DbWorker();
         FileWriter writer = null;
-
 
         try {
 
@@ -36,7 +31,6 @@ public class Main {
                 writer.close();
             }
 
-
             if (worker.getConnection().isClosed()) {
                 System.out.println("Connection on");
             }
@@ -44,7 +38,7 @@ public class Main {
             e.printStackTrace();
         } catch (IOException e) {
             System.err.println("writer error");
-            ;
+
         }
 
 
