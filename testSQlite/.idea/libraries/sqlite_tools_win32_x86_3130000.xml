@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="sqlite-tools-win32-x86-3130000">
+    <ANNOTATIONS>
+      <root url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" />
+    </SOURCES>
+    <jarDirectory url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" recursive="false" />
+    <jarDirectory url="file://C:/Program Files/sqlite-tools-win32-x86-3130000" recursive="false" type="SOURCES" />
+  </library>
+</component>
