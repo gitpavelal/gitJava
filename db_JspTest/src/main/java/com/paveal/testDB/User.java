@@ -14,6 +14,7 @@ public class User {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
+        DbWorker worker;
     }
 
     public User(int userId, String userName, String userPassword, int userArrears) {
