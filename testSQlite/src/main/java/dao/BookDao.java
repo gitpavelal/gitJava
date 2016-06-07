@@ -9,26 +9,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class BookDao implements BookStoreDao {
+public class BookDao {
     private static final Logger logger = LoggerFactory.getLogger(BookDao.class);
-    private DbConnection dbConnection;
 
-    public void addInStore(Object object) {
+    public void addInStore(Book book) {
+
+        String SQL = "INSERT INTO Book(name, author_id) values('" + book.getBookName() + "','"
+                + book.getBookAuthorId() + "');";
+        CRUDbook(SQL);
 
     }
 
-    public void updateInStore(Object object) {
+    public void updateInStore(Book book) {
 
+        String SQL = " UPDATE Book SET name='" + book.getBookName() + "', author_id="
+                + book.getBookAuthorId() + " WHERE id=" + book.getBookId() + ";";
+        CRUDbook(SQL);
     }
 
-    public void removeInStore(Object object) {
 
+    public void removeInStore(Book book) {
+
+        String SQL = " DELETE FROM Book WHERE id="+book.getBookId()+" ";
+        CRUDbook(SQL);
     }
 
     public List<Object> getListBooksStore() {
+
         List<Object> bookCase = new ArrayList<>();
         String SQL = "SELECT * FROM Book";
         try {
@@ -46,6 +55,16 @@ public class BookDao implements BookStoreDao {
             e.printStackTrace();
         }
         return bookCase;
+    }
+
+    private void CRUDbook(String SQL) {
+        try {
+            Statement statement = new DbConnection().getConnection().createStatement();
+            statement.executeUpdate(SQL);
+        } catch (SQLException e) {
+            logger.error("Error statement, executeUpdate", e);
+            e.printStackTrace();
+        }
     }
 
 }

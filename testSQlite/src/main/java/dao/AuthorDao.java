@@ -1,9 +1,11 @@
 package dao;
 
 
+import model.Book;
+
 import java.util.List;
 
-public class AuthorDao implements BookStoreDao {
+public class AuthorDao  {
 
     public void addInStore(Object object) {
 

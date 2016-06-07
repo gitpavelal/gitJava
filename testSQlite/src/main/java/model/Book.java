@@ -13,6 +13,11 @@ public class Book {
     public Book() {
     }
 
+    public Book(String bookName, int bookAuthorId) {
+        this.bookName = bookName;
+        this.bookAuthorId = bookAuthorId;
+    }
+
     public Book(int bookPrimaryKeyId, String authorName, int bookAuthorId) {
         this.bookId = bookPrimaryKeyId;
         this.bookName = authorName;
