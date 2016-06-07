@@ -63,6 +63,16 @@ public class Menu{
                     System.out.println();
                     continue;
                 }else if (chose == 8){
+                    /**
+                     *
+                     *  Дописать что бы работало с  BookService.
+                     *  ==========
+                     *  запихать этот код в какой то метод что бы тут
+                     *  место не занимал.
+                     *  ==========
+                     *
+                     */
+
                     for (Object books: bookDao.getListBooksStore()
                             ) {
                         System.out.println(books);
