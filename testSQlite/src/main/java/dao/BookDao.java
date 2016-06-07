@@ -52,7 +52,7 @@ public class BookDao {
             }
         } catch (SQLException e) {
             logger.error("Error statement", e);
-            e.printStackTrace();
+
         }
         return bookCase;
     }
@@ -63,7 +63,7 @@ public class BookDao {
             statement.executeUpdate(SQL);
         } catch (SQLException e) {
             logger.error("Error statement, executeUpdate", e);
-            e.printStackTrace();
+
         }
     }
 

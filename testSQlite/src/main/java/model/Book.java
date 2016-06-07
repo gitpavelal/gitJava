@@ -1,13 +1,10 @@
 package model;
 
-import dao.BookDao;
-import service.DbConnection;
-
 public class Book {
     private int bookId;
     private String bookName;
     private int bookAuthorId;
-    private BookDao BookDao;
+
 
 
     public Book() {
@@ -51,9 +48,8 @@ public class Book {
     @Override
     public String toString() {
         return "{" +
-                "Книга='" + bookName + '\'' +
-                ", Id=" + bookId +
-                '}';
+                "id книги= '" + bookId +
+                "' название книги = '" + bookName + "'}";
     }
 
 }
