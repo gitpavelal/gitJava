@@ -2,7 +2,6 @@ package dao;
 
 
 import model.Author;
-import model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import service.DbConnection;
@@ -13,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuthorDao {
+public class AuthorDao implements Dao<Author> {
     private static final Logger logger = LoggerFactory.getLogger(AuthorDao.class);
 
     public void addInStore(Author author) {
@@ -41,8 +40,8 @@ public class AuthorDao {
         CRUDauthor(SQL);
     }
 
-    public List<Object> getListBooksStore() {
-        List<Object> authorCase = new ArrayList<>();
+    public List<Author> getListBooksStore() {
+        List<Author> authorCase = new ArrayList<>();
         String SQL = "SELECT * FROM Author";
         try {
             Statement statement = new DbConnection().getConnection().createStatement();

@@ -4,9 +4,8 @@ import model.Author;
 import model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Scanner;
-import java.util.logging.SocketHandler;
+
 
 public class Menu {
     private static final Logger logger = LoggerFactory.getLogger(Menu.class);
@@ -210,7 +209,7 @@ public class Menu {
     }
 
     private void addNewBookNameAndIdAuthor(BookDao bookStore, Scanner sc) {
-        int chose;
+                int chose;
         Book book = new Book();
         System.out.print("Название книги: ");
         String text = sc.next();
@@ -221,7 +220,6 @@ public class Menu {
         System.out.print("id автора: ");
         chose = sc.nextInt();
         book.setBookAuthorId(chose);
-
         bookStore.addInStore(book);
         logger.info("Книга добавлена: " + book.getBookName());
         System.out.println();

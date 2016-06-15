@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 //        logger.info("START app!");
+
         Menu menu = new Menu();
 
         menu.viewMenu();

@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookDao {
+public class BookDao implements Dao<Book> {
     private static final Logger logger = LoggerFactory.getLogger(BookDao.class);
 
     public void addInStore(Book book) {
@@ -36,9 +36,9 @@ public class BookDao {
         CRUDbook(SQL);
     }
 
-    public List<Object> getListBooksStore() {
+    public List<Book> getListBooksStore() {
 
-        List<Object> bookCase = new ArrayList<>();
+        List<Book> bookCase = new ArrayList<>();
         String SQL = "SELECT * FROM Book";
         try {
             Statement statement = new DbConnection().getConnection().createStatement();
