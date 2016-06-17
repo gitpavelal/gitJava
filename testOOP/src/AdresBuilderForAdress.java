@@ -3,9 +3,9 @@
  * <p>
  * Тест ооп сборка адреса пользователя
  * предварительно собираем в StringBuilder по частям
- * далее формируем полный Adress пользователя
+ * далее формируем полный AdressByManyTypes пользователя
  */
-class TestADresBuilder {
+public class AdresBuilderForAdress {
     public static void main(String[] args) {
         /**
          * Откуда то берем поле страны
@@ -19,10 +19,10 @@ class TestADresBuilder {
          * */
         AdressBuilder builderNormal = builderSmall.sity("AAA");
         /**
-         * собираем полный Adress со всеми данными
+         * собираем полный AdressByManyTypes со всеми данными
          * полей null нет
          * */
-        Adress adress = builderNormal.state("NY").build();
+        AdressByString adress = builderNormal.state("NY").build();
         System.out.println(adress);
     }
 }
@@ -31,12 +31,12 @@ class TestADresBuilder {
  * полный адрес пользователя
  * предпочтительно избегать полей null
  */
-class Adress {
+class AdressByString {
     private String country;
     private String state;
     private String sity;
 
-    public Adress(String country, String state, String sity) {
+    public AdressByString(String country, String state, String sity) {
         this.country = country;
         this.state = state;
         this.sity = sity;
@@ -44,7 +44,7 @@ class Adress {
 
     @Override
     public String toString() {
-        return "Adress{" +
+        return "AdressByString{" +
                 "country='" + country + '\'' +
                 ", state='" + state + '\'' +
                 ", sity='" + sity + '\'' +
@@ -53,18 +53,18 @@ class Adress {
 }
 
 /**
- * собирает даные для Adress
+ * собирает даные для AdressByManyTypes
  * умеет собирать по частям
  * нужен на случай что бы лучше обработать бизнес модель
  * может иметь поля null
  */
-class AdressBuilder {
+ class AdressBuilder {
     private String country;
     private String state;
     private String sity;
 
-    Adress build() {
-        return new Adress(country, state, sity);
+    AdressByString build() {
+        return new AdressByString(country, state, sity);
     }
 
     public AdressBuilder country(String country) {
